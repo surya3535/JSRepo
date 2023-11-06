@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h2 style="color: green ; background-color: rgb(218, 208, 208);">Calculate Your Age From Date Of Birth</h2>
+        enter your DOB: <input type="date" id="userInput">
+        &nbsp;&nbsp;&nbsp;<span id="massage" style="color: red;"></span>
+        <h3 id="result" style="color: greenyellow;"></h3>
+        <button type="button" style="color: white; background-color: black; height: 30px; border-radius: 50%;" onclick="calculateAge()">calculate</button>
+
+        <h3 id="result" style="color:rgb(40, 226, 217);"></h3>
+    </center>
+</body>
+<script>
+    function calculateAge() {
+        let userInput=document.getElementById("userInput").value;
+        if (userInput==null || userInput=="") {
+            document.getElementById("massage").innerHTML="* please enter your age"
+        } else {
+            document.getElementById("massage").innerHTML=""
+           let DOB=new Date(userInput).getTime()
+           let currentDate=Date.now()
+           let diff=currentDate-DOB
+           let toYear=new Date(diff).getUTCFullYear()
+           let userAge=toYear-1970
+           console.log(userAge);
+
+         document.getElementById("result").innerHTML="your age is:"+ userAge 
+            
+        }
+    }
+    
+</script>
+</html>
